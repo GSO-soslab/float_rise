@@ -1,3 +1,10 @@
+/float_rise/thruster_driver_node:
+    ros__parameters:
+      thruster_pub_topic: /float_rise/stonefish/thruster_command
+      thruster_length: 2
+      thruster_sub_topics: [/float_rise/control/thruster/port, 
+                            /float_rise/control/thruster/stbd]
+
 /float_rise/imu_driver_node:
     ros__parameters:
       roll_offset: 3.1415926
@@ -7,9 +14,8 @@
       pitch_reverse: -1.0
       yaw_reverse: -1.0
 
-/float_rise/thruster_driver_node:
+/float_rise/dvl_driver_node:
     ros__parameters:
-      thruster_pub_topic: /float_rise/stonefish/thruster_command
-      thruster_length: 2
-      thruster_sub_topics: [/float_rise/control/thruster/port, 
-                            /float_rise/control/thruster/stbd]
+      dvl_in: /float_rise/dvl/stonefish/raw
+      dvl_out: /float_rise/dvl/twist
+      dvl_alt_out: /float_rise/dvl/altitude         

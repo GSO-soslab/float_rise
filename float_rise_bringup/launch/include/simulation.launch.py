@@ -38,22 +38,6 @@ def generate_launch_description():
             arguments=[simulation_data, scenario_desc, simulation_rate, window_res_x, window_res_y, rendering_quality]
         ),
 
-        # stonefish IMU convector
-        Node(
-            package="world_of_stonefish",
-            executable="imu_driver_node",
-            namespace=robot_name,
-            name="imu_driver_node",
-            remappings=[
-                    ('imu_in/data', 'stonefish/imu/data'),
-                    ('imu_out/data', 'imu/data'),
-            ],
-            parameters=[
-                {'frame_id': robot_name + '/imu_sf'},
-                stonefish_driver_param_file
-            ]
-        ),
-
         # stonefish thruster convector
         Node(
             package="world_of_stonefish",
@@ -62,6 +46,30 @@ def generate_launch_description():
             name="thruster_driver_node",
             # prefix=['stdbuf -o L'],
             # output="screen",
+            parameters=[stonefish_driver_param_file]
+        ),
+
+        # stonefish IMU convector
+        Node(
+            package="world_of_stonefish",
+            executable="imu_driver_node",
+            namespace=robot_name,
+            name="imu_driver_node",
+            remappings=[
+                    ('imu_in/data', 'imu/stonefish/data'),
+                    ('imu_out/data', 'imu/data'),
+            ],
+            parameters=[
+                {'frame_id': robot_name + '/imu_sf'},
+                stonefish_driver_param_file
+            ]
+        ),
+
+        Node(
+            package="world_of_stonefish",
+            executable="dvl_driver_node",
+            namespace=robot_name,
+            name="dvl_driver_node",
             parameters=[stonefish_driver_param_file]
         ),
 
