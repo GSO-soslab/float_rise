@@ -1,0 +1,29 @@
+control_modes:
+  idle: false
+
+  teleop:
+    z:        {p: 20.0,    i: 2.0 ,  d: 5.0,  pid_max: 30.0, pid_min: -30.0}
+
+  flight:
+    z:        {p: 20.0,    i: 2.0 ,  d: 5.0,  pid_max: 30.0, pid_min: -30.0}
+
+  4dof:
+    z:        {p: 10.0,   i: 0.2 ,  d: 5.0,  pid_max: 40.0, pid_min: -40.0}
+    # u:        {p: 100.0,    i: 2.0,   d: 0.0,   pid_max: 60, pid_min: -10}
+    # pitch:    {p: 10.0,   i: 1.0,  d: 1.0,  pid_max: 40, pid_min: -40}
+    # yaw:      {p: 15.0,   i: 2.0,   d: 5.0,  pid_max: 50, pid_min: -50}
+
+thruster_ids:
+  port:
+    control_tf: port_thruster_link
+    command_topic: control/thruster/port
+    force_topic: control/force/port
+    limits: [-20.0, 20.0] #[min, max]
+    polynomials: [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
+
+  stbd:
+    control_tf: stbd_thruster_link
+    command_topic: control/thruster/stbd
+    force_topic: control/force/stbd
+    limits: [-20.0, 20.0] #[min, max]
+    polynomials: [0.0305, 18.9527, 6.1205, 64.0375, 2.4386, -24.8871]
