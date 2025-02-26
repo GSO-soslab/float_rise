@@ -59,22 +59,22 @@ Visualization Manager:
           Value: true
         float_rise/cg_link:
           Value: false
-        float_rise/dvl:
-          Value: false
         float_rise/dvl_sf:
           Value: false
         float_rise/gps:
-          Value: false
-        float_rise/heave_bow_thruster_link:
           Value: false
         float_rise/imu_sf:
           Value: false
         float_rise/nose_tip_link:
           Value: false
+        float_rise/odom:
+          Value: true
+        float_rise/port_thruster_link:
+          Value: true
         float_rise/pressure:
           Value: false
-        float_rise/surge_thruster_link:
-          Value: false
+        float_rise/stbd_thruster_link:
+          Value: true
         float_rise/world:
           Value: false
         float_rise/world_ned:
@@ -88,21 +88,24 @@ Visualization Manager:
         float_rise/base_link:
           float_rise/cg_link:
             {}
-          float_rise/dvl:
-            {}
           float_rise/dvl_sf:
             {}
           float_rise/gps:
-            {}
-          float_rise/heave_bow_thruster_link:
             {}
           float_rise/imu_sf:
             {}
           float_rise/nose_tip_link:
             {}
+          float_rise/port_thruster_link:
+            {}
           float_rise/pressure:
             {}
-          float_rise/surge_thruster_link:
+          float_rise/stbd_thruster_link:
+            {}
+        float_rise/odom:
+          {}
+        float_rise/world:
+          float_rise/world_ned:
             {}
       Update Interval: 0
       Value: true
@@ -132,19 +135,11 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        dvl:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         dvl_sf:
           Alpha: 1
           Show Axes: false
           Show Trail: false
         gps:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        heave_bow_thruster_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -157,11 +152,15 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        port_thruster_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         pressure:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        surge_thruster_link:
+        stbd_thruster_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -176,7 +175,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: float_rise/base_link
+    Fixed Frame: float_rise/odom
     Frame Rate: 30
   Name: root
   Tools:
@@ -219,7 +218,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 1.8979061841964722
+      Distance: 18.325361251831055
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
