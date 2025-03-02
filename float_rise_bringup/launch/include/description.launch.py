@@ -20,10 +20,11 @@ def generate_launch_description():
     # robot_description = robot_name + '_description'
 
     path_to_urdf = os.path.join( get_package_share_directory('float_rise_description'), 'urdf', 'base.urdf' )
-    rviz_config_dir = os.path.join( get_package_share_directory('float_rise_description'), 'config', 'config.rviz' )
     with open(path_to_urdf, 'r') as infp:
         robot_desc = infp.read()
 
+    rviz_config_dir = os.path.join( get_package_share_directory('float_rise_description'), 'config', 'rviz.rviz' )
+    rqt_config_dir = os.path.join( get_package_share_directory('float_rise_description'), 'config', 'rqt.perspective' )
 
     return LaunchDescription([
         Node(
@@ -32,7 +33,13 @@ def generate_launch_description():
             name='rviz2',
             arguments=['-d', [rviz_config_dir]],
         ),
-        
+
+        Node(package="rqt_gui", 
+             executable="rqt_gui", 
+             name="rqt", 
+             arguments=["--perspective-file", rqt_config_dir],
+        ),
+
         Node(
             package='robot_state_publisher',
             executable='robot_state_publisher',
@@ -41,7 +48,7 @@ def generate_launch_description():
             # output='screen',
             parameters=[{'robot_description' : robot_desc},
                         {'frame_prefix': robot_name +'/'}],
-           ),
+        ),
 
         Node(
             package='tf2_ros',

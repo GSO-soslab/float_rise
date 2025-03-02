@@ -4,39 +4,48 @@ from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.substitutions import LaunchConfiguration
-
+from launch.actions import DeclareLaunchArgument
 
 def generate_launch_description():
-    robot_name = 'float_rise'
-    robot_bringup = robot_name + '_bringup'
-    
-    sim_world = 'simple_float.scn'
 
-    world_of_stonefish_dir = get_package_share_directory('world_of_stonefish')
-
-    simulation_data = os.path.join(world_of_stonefish_dir, 'data/')
-    scenario_desc = os.path.join(world_of_stonefish_dir, 'world', sim_world)
-    simulation_rate = "100"
-    window_res_x = "800"
-    window_res_y = "800"
-    rendering_quality ="high"
-
+    # =================================================== #
+    # parameters
+    # =================================================== #
+    robot_bringup = 'float_rise_bringup'
     robot_param_path = os.path.join(
         get_package_share_directory(robot_bringup),
         'config'
-        )
+    )
+    stonefish_driver_param_file = os.path.join(
+        robot_param_path, 
+        'new_sim_params.yaml'
+    ) 
 
-    stonefish_driver_param_file = os.path.join(robot_param_path, 'sim_params.yaml') 
+    # =================================================== #
+    # passed config
+    # =================================================== #
+    robot_name = LaunchConfiguration('arg_robot_name')
+    arg_robot = DeclareLaunchArgument(
+        'arg_robot_names',
+        default_value='float_rise'
+    )
 
+    world_frame = LaunchConfiguration('arg_world_frame')
+    arg_world_frame = DeclareLaunchArgument(
+        'arg_world_frame',
+        default_value='float_rise/world'
+    )
+
+    imu_frame = LaunchConfiguration('arg_imu_frame')
+    arg_sensor_frame = DeclareLaunchArgument(
+        'arg_imu_frame',
+        default_value='float_rise/imu_sf'
+    )
+    
+    # =================================================== #
+    # launch the stonefish sensor convertor
+    # =================================================== #
     return LaunchDescription([
-        # simulation node
-        Node(
-            package="stonefish_ros2",
-            executable="stonefish_simulator",
-            name="stonefish_simulator",
-            # output="screen",
-            arguments=[simulation_data, scenario_desc, simulation_rate, window_res_x, window_res_y, rendering_quality]
-        ),
 
         # stonefish thruster convector
         Node(
@@ -60,11 +69,12 @@ def generate_launch_description():
                     ('imu_out/data', 'imu/data'),
             ],
             parameters=[
-                {'frame_id': robot_name + '/imu_sf'},
+                {'frame_id': imu_frame},
                 stonefish_driver_param_file
             ]
         ),
 
+        # stonefish DVL convector
         Node(
             package="world_of_stonefish",
             executable="dvl_driver_node",
@@ -80,7 +90,7 @@ def generate_launch_description():
             namespace=robot_name,
             name="pressure_sensor_node",
             parameters=[
-                {'frame_id': robot_name + '/world'}]
+                {'frame_id': world_frame}]
         )
 
         # stonefish usbl convector
@@ -90,7 +100,7 @@ def generate_launch_description():
         #     namespace=robot_name,
         #     name="usbl_driver_node",
         #     # parameters=[
-        #         # {'frame_id': robot_name + '/world'}
+        #         # {'frame_id': world_frame}
         #         # ]
         # )
 

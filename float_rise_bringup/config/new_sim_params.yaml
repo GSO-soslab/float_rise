@@ -1,0 +1,51 @@
+# ========================================================================== #
+# Float 1
+# ========================================================================== #
+
+/float_rise_1/thruster_driver_node:
+    ros__parameters:
+      thruster_pub_topic: /float_rise_1/stonefish/thruster_command
+      thruster_length: 2
+      thruster_sub_topics: [/float_rise_1/control/thruster/port, 
+                            /float_rise_1/control/thruster/stbd]
+
+/float_rise_1/imu_driver_node:
+    ros__parameters:
+      roll_offset: 3.1415926
+      pitch_offset: 0.0
+      yaw_offset: 1.5707
+      roll_reverse: 1.0
+      pitch_reverse: -1.0
+      yaw_reverse: -1.0
+
+/float_rise_1/dvl_driver_node:
+    ros__parameters:
+      dvl_in: /float_rise_1/dvl/stonefish/raw
+      dvl_out: /float_rise_1/dvl/twist
+      dvl_alt_out: /float_rise_1/dvl/altitude         
+
+# ========================================================================== #
+# Float 2
+# ========================================================================== #
+
+/float_rise_2/thruster_driver_node:
+    ros__parameters:
+      thruster_pub_topic: /float_rise_2/stonefish/thruster_command
+      thruster_length: 2
+      thruster_sub_topics: [/float_rise_2/control/thruster/port, 
+                            /float_rise_2/control/thruster/stbd]
+
+/float_rise_2/imu_driver_node:
+    ros__parameters:
+      roll_offset: 3.1415926
+      pitch_offset: 0.0
+      yaw_offset: 1.5707
+      roll_reverse: 1.0
+      pitch_reverse: -1.0
+      yaw_reverse: -1.0
+
+/float_rise_2/dvl_driver_node:
+    ros__parameters:
+      dvl_in: /float_rise_2/dvl/stonefish/raw
+      dvl_out: /float_rise_2/dvl/twist
+      dvl_alt_out: /float_rise_2/dvl/altitude         
