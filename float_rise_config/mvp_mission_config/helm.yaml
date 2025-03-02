@@ -1,0 +1,21 @@
+finite_state_machine:
+
+  start:
+    initial: true
+    control_mode: idle
+    transitions: [kill, floating]
+  
+  kill:
+    control_mode: idle
+    transitions: [start]
+
+  floating:
+    control_mode: flight
+    transitions: [start, kill] 
+
+behaviors:
+
+  bhv_depth_tracking:
+    plugin: helm/DepthTracking
+    priority:
+      floating: 1
