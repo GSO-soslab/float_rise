@@ -61,12 +61,12 @@
         <child link="dvl"/>
     </joint> -->
 
-    <link name="dvl_sf"/>
+    <!-- <link name="dvl_sf"/>
     <joint name="dvl_sf_joint" type="fixed">
         <origin xyz="0.0 0.0 -0.06" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="dvl_sf"/>
-    </joint>
+    </joint> -->
 
     <link name="pressure"/>
     <joint name="pressure_joint" type="fixed">
