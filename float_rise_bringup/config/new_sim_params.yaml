@@ -18,11 +18,11 @@
       pitch_reverse: -1.0
       yaw_reverse: -1.0
 
-/float_rise_1/dvl_driver_node:
-    ros__parameters:
-      dvl_in: /float_rise_1/dvl/stonefish/raw
-      dvl_out: /float_rise_1/dvl/twist
-      dvl_alt_out: /float_rise_1/dvl/altitude         
+# /float_rise_1/dvl_driver_node:
+#     ros__parameters:
+#       dvl_in: /float_rise_1/dvl/stonefish/raw
+#       dvl_out: /float_rise_1/dvl/twist
+#       dvl_alt_out: /float_rise_1/dvl/altitude         
 
 # ========================================================================== #
 # Float 2
@@ -44,8 +44,8 @@
       pitch_reverse: -1.0
       yaw_reverse: -1.0
 
-/float_rise_2/dvl_driver_node:
-    ros__parameters:
-      dvl_in: /float_rise_2/dvl/stonefish/raw
-      dvl_out: /float_rise_2/dvl/twist
-      dvl_alt_out: /float_rise_2/dvl/altitude         
+# /float_rise_2/dvl_driver_node:
+#     ros__parameters:
+#       dvl_in: /float_rise_2/dvl/stonefish/raw
+#       dvl_out: /float_rise_2/dvl/twist
+#       dvl_alt_out: /float_rise_2/dvl/altitude         

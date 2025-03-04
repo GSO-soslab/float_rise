@@ -82,11 +82,11 @@
         <child link="gps"/>
     </joint>
 
-    <!-- <link name="usbl"/>
+    <link name="usbl"/>
     <joint name="usbl_joint" type="fixed">
-        <origin xyz="0.2 0.0 0.0" rpy="3.1415926 0.0 0.0"/>
+        <origin xyz="0.0 0.0 -0.06" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="usbl"/>
-    </joint> -->
+    </joint>
 
 </robot>

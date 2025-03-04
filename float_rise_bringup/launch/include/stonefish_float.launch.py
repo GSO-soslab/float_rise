@@ -75,13 +75,13 @@ def generate_launch_description():
         ),
 
         # stonefish DVL convector
-        Node(
-            package="world_of_stonefish",
-            executable="dvl_driver_node",
-            namespace=robot_name,
-            name="dvl_driver_node",
-            parameters=[stonefish_driver_param_file]
-        ),
+        # Node(
+        #     package="world_of_stonefish",
+        #     executable="dvl_driver_node",
+        #     namespace=robot_name,
+        #     name="dvl_driver_node",
+        #     parameters=[stonefish_driver_param_file]
+        # ),
 
         # stonefish pressure convector
         Node(
@@ -91,17 +91,17 @@ def generate_launch_description():
             name="pressure_sensor_node",
             parameters=[
                 {'frame_id': world_frame}]
-        )
+        ),
 
         # stonefish usbl convector
-        # Node(
-        #     package="world_of_stonefish",
-        #     executable="usbl_driver_node",
-        #     namespace=robot_name,
-        #     name="usbl_driver_node",
-        #     # parameters=[
-        #         # {'frame_id': world_frame}
-        #         # ]
-        # )
+        Node(
+            package="world_of_stonefish",
+            executable="usbl_driver_node",
+            namespace=robot_name,
+            name="usbl_driver_node",
+            # parameters=[
+                # {'frame_id': world_frame}
+                # ]
+        )
 
     ])
