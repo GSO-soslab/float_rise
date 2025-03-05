@@ -19,12 +19,15 @@ def generate_launch_description():
     robot_name = 'float_rise'
     # robot_description = robot_name + '_description'
 
-    path_to_urdf = os.path.join( get_package_share_directory('float_rise_description'), 'urdf', 'base.urdf' )
+    path_to_urdf = os.path.join( 
+        get_package_share_directory('float_rise_description'), 'urdf', 'base.urdf' )
     with open(path_to_urdf, 'r') as infp:
         robot_desc = infp.read()
 
-    rviz_config_dir = os.path.join( get_package_share_directory('float_rise_description'), 'config', 'rviz.rviz' )
-    rqt_config_dir = os.path.join( get_package_share_directory('float_rise_description'), 'config', 'rqt.perspective' )
+    rviz_config_dir = os.path.join( 
+        get_package_share_directory('float_rise_description'), 'config', 'rviz.rviz' )
+    rqt_config_dir = os.path.join( 
+        get_package_share_directory('float_rise_description'), 'config', 'rqt.perspective' )
 
     return LaunchDescription([
         Node(

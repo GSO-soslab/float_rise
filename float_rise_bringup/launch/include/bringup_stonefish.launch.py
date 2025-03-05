@@ -39,10 +39,10 @@ def generate_launch_description():
     robot_bringup = 'float_rise_bringup'
 
     # bringup the first float
-    float_1 = IncludeLaunchDescription(
+    sim_float_1 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             os.path.join(get_package_share_directory(robot_bringup),
-            'launch', 'include', 'stonefish_float.launch.py')]),
+            'launch', 'include', 'float_1', 'float_1.launch.py')]),
         launch_arguments = {
             'arg_robot_name': 'float_rise_1',
             'arg_world_frame': 'float_rise_1/world',
@@ -51,10 +51,10 @@ def generate_launch_description():
     )   
 
     # bringup the second float
-    float_2 = IncludeLaunchDescription(
+    sim_float_2 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             os.path.join(get_package_share_directory(robot_bringup),
-            'launch', 'include', 'stonefish_float.launch.py')]),
+            'launch', 'include', 'float_2', 'float_2.launch.py')]),
         launch_arguments = {
             'arg_robot_name': 'float_rise_2',
             'arg_world_frame': 'float_rise_2/world',
@@ -67,6 +67,6 @@ def generate_launch_description():
     # ======================================================================= #
     return LaunchDescription([
         stonefish,
-        float_1,
-        float_2,
+        sim_float_1,
+        sim_float_2,
     ])

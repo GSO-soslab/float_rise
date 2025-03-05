@@ -4,14 +4,14 @@
     "mainwindow": {
       "keys": {
         "geometry": {
-          "repr(QByteArray.hex)": "QtCore.QByteArray(b'01d9d0cb000300000000010600000091000006ff0000032000000106000000b6000006ff000003200000000000000000078000000106000000b6000006ff00000320')",
+          "repr(QByteArray.hex)": "QtCore.QByteArray(b'01d9d0cb000300000000021500000220000006e9000004220000021500000245000006e900000422000000000000000007800000021500000245000006e900000422')",
           "type": "repr(QByteArray.hex)",
-          "pretty-print": "                                 "
+          "pretty-print": "           \"   E   \"        E   \""
         },
         "state": {
-          "repr(QByteArray.hex)": "QtCore.QByteArray(b'000000ff00000000fd0000000100000003000005fa0000023bfc0100000004fb00000058007200710074005f007000750062006c00690073006800650072005f005f005000750062006c00690073006800650072005f005f0031005f005f005000750062006c006900730068006500720057006900640067006500740100000000000003240000023b00fffffffb00000042007200710074005f0070006c006f0074005f005f0050006c006f0074005f005f0031005f005f00440061007400610050006c006f007400570069006400670065007401000000000000038f0000000000000000fb0000004c007200710074005f00740066005f0074007200650065005f005f0052006f0073005400660054007200650065005f005f0031005f005f0052006f00730054006600540072006500650055006901000000000000073e0000000000000000fb00000072007200710074005f0073006500720076006900630065005f00630061006c006c00650072005f005f005300650072007600690063006500430061006c006c00650072005f005f0031005f005f005300650072007600690063006500430061006c006c00650072005700690064006700650074010000032a000002d0000002d000ffffff000005fa0000000000000004000000040000000800000008fc00000001000000030000000100000036004d0069006e0069006d0069007a006500640044006f0063006b00570069006400670065007400730054006f006f006c0062006100720000000000ffffffff0000000000000000')",
+          "repr(QByteArray.hex)": "QtCore.QByteArray(b'000000ff00000000fd0000000100000003000004d5000001aefc0100000002fc00000000000004d5000002e000fffffffa000000000200000003fb00000058007200710074005f007000750062006c00690073006800650072005f005f005000750062006c00690073006800650072005f005f0031005f005f005000750062006c006900730068006500720057006900640067006500740100000000ffffffff0000009000fffffffb00000072007200710074005f0073006500720076006900630065005f00630061006c006c00650072005f005f005300650072007600690063006500430061006c006c00650072005f005f0031005f005f005300650072007600690063006500430061006c006c006500720057006900640067006500740100000000ffffffff0000010c00fffffffb0000004c007200710074005f00740066005f0074007200650065005f005f0052006f0073005400660054007200650065005f005f0031005f005f0052006f0073005400660054007200650065005500690100000000ffffffff0000000000000000fb00000042007200710074005f0070006c006f0074005f005f0050006c006f0074005f005f0031005f005f00440061007400610050006c006f007400570069006400670065007401000000000000038f0000000000000000000004d50000000000000004000000040000000800000008fc00000001000000030000000100000036004d0069006e0069006d0069007a006500640044006f0063006b00570069006400670065007400730054006f006f006c0062006100720000000000ffffffff0000000000000000')",
           "type": "repr(QByteArray.hex)",
-          "pretty-print": "                 Xrqt_publisher__Publisher__1__PublisherWidget          Brqt_plot__Plot__1__DataPlotWidget          Lrqt_tf_tree__RosTfTree__1__RosTfTreeUi          rrqt_service_caller__ServiceCaller__1__ServiceCallerWidget                            6MinimizedDockWidgetsToolbar        "
+          "pretty-print": "                                                                                                                                                                                                                                                                                                             "
         }
       },
       "groups": {
@@ -87,7 +87,7 @@
             "plugin": {
               "keys": {
                 "publishers": {
-                  "repr": "'[{\\'topic_name\\': \\'/float_rise/stonefish/thruster_command\\', \\'type_name\\': \\'std_msgs/msg/Float64MultiArray\\', \\'rate\\': 1.0, \\'enabled\\': False, \\'publisher_id\\': 0, \\'counter\\': 0, \\'expressions\\': {}}, {\\'topic_name\\': \\'/float_rise/controller/process/set_point\\', \\'type_name\\': \\'mvp_msgs/msg/ControlProcess\\', \\'rate\\': 1.0, \\'enabled\\': False, \\'publisher_id\\': 1, \\'counter\\': 255, \\'expressions\\': {\\'/float_rise/controller/process/set_point/control_mode\\': \"\\'flight\\'\", \\'/float_rise/controller/process/set_point/header/frame_id\\': \"\\'float_rise/world\\'\", \\'/float_rise/controller/process/set_point/child_frame_id\\': \"\\'float_rise/base_link\\'\", \\'/float_rise/controller/process/set_point/position/z\\': \\'-5.0\\'}}]'",
+                  "repr": "'[{\\'topic_name\\': \\'/float_rise_1/controller/process/set_point\\', \\'type_name\\': \\'mvp_msgs/msg/ControlProcess\\', \\'rate\\': 1.0, \\'enabled\\': False, \\'publisher_id\\': 0, \\'counter\\': 103, \\'expressions\\': {\\'/float_rise_1/controller/process/set_point/control_mode\\': \"\\'flight\\'\", \\'/float_rise_1/controller/process/set_point/header/frame_id\\': \"\\'float_rise_1/world\\'\", \\'/float_rise_1/controller/process/set_point/position/z\\': \\'-5.0\\', \\'/float_rise_1/controller/process/set_point/child_frame_id\\': \"\\'float_rise_1/base_link\\'\"}}, {\\'topic_name\\': \\'/float_rise_2/controller/process/set_point\\', \\'type_name\\': \\'mvp_msgs/msg/ControlProcess\\', \\'rate\\': 1.0, \\'enabled\\': False, \\'publisher_id\\': 1, \\'counter\\': 122, \\'expressions\\': {\\'/float_rise_2/controller/process/set_point/header/frame_id\\': \"\\'float_rise_2/world\\'\", \\'/float_rise_2/controller/process/set_point/control_mode\\': \"\\'flight\\'\", \\'/float_rise_2/controller/process/set_point/position/z\\': \\'-7.0\\', \\'/float_rise_2/controller/process/set_point/child_frame_id\\': \"\\'float_rise_2/base_link\\'\"}}]'",
                   "type": "repr"
                 }
               },
@@ -118,7 +118,7 @@
             "plugin": {
               "keys": {
                 "current_service_name": {
-                  "repr": "'/float_rise/controller/set'",
+                  "repr": "'/float_rise_2/controller/set'",
                   "type": "repr"
                 },
                 "splitter_orientation": {
@@ -140,7 +140,7 @@
                   "type": "repr"
                 },
                 "dockable": {
-                  "repr": "'true'",
+                  "repr": "True",
                   "type": "repr"
                 },
                 "parent": {
@@ -153,11 +153,11 @@
             "plugin": {
               "keys": {
                 "auto_fit_graph_check_box_state": {
-                  "repr": "'true'",
+                  "repr": "True",
                   "type": "repr"
                 },
                 "highlight_connections_check_box_state": {
-                  "repr": "'true'",
+                  "repr": "True",
                   "type": "repr"
                 }
               },
