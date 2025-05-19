@@ -21,6 +21,14 @@ def generate_launch_description():
             arguments = ["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", 'float_rise_1/world', 'float_rise_2/world']    
         ),
 
+        # connect the float1 and float3
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='float1_float3',
+            arguments = ["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", 'float_rise_1/world', 'float_rise_3/world']    
+        ),
+
         # connect world and world_ned for float1
         Node(
             package='tf2_ros',
@@ -36,6 +44,14 @@ def generate_launch_description():
             name='float2_world_ned',
             arguments = ["0.0", "0.0", "0.0", "1.571", "0.0", "3.1415", 'float_rise_2/world', 'float_rise_2/world_ned']    
         ),        
+
+        # connect world and world_ned for float3
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='float3_world_ned',
+            arguments = ["0.0", "0.0", "0.0", "1.571", "0.0", "3.1415", 'float_rise_3/world', 'float_rise_3/world_ned']    
+        ),    
 
         # rviz
         Node(

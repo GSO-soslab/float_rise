@@ -46,6 +46,17 @@ def generate_launch_description():
     ) 
 
     # =================================================== #
+    # bringup everything related to ros setup for float 3
+    # =================================================== #
+
+    float_3 = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            os.path.join(get_package_share_directory(robot_bringup), 
+            'launch', 'include', 'bringup_float_3.launch.py')]),
+        # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
+    ) 
+
+    # =================================================== #
     # bringup visualization
     # =================================================== #
 
@@ -60,5 +71,6 @@ def generate_launch_description():
         simulation,
         float_1,
         float_2,
+        float_3,
         vis,
     ])    
