@@ -89,4 +89,11 @@
         <child link="usbl"/>
     </joint>
 
+    <link name="odometry_sf"/>
+    <joint name="odometry_sf_joint" type="fixed">
+        <origin xyz="0.0 0.0 0.00" rpy="3.1415926 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="odometry_sf"/>
+    </joint>
+
 </robot>
