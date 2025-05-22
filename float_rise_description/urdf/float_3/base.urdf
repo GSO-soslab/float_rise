@@ -82,12 +82,33 @@
         <child link="gps"/>
     </joint>
 
-    <!-- <link name="acomm"/>
-    <joint name="acomm_joint" type="fixed">
+    <link name="acomm_13"/>
+    <joint name="acomm_13_joint" type="fixed">
         <origin xyz="0.0 0.0 -0.06" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
-        <child link="acomm"/>
-    </joint> -->
+        <child link="acomm_13"/>
+    </joint>
+
+    <link name="acomm_23"/>
+    <joint name="acomm_23_joint" type="fixed">
+        <origin xyz="0.0 0.0 -0.06" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="acomm_23"/>
+    </joint>
+
+    <link name="usbl_31"/>
+    <joint name="usbl_31_joint" type="fixed">
+        <origin xyz="0.0 0.0 -0.06" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="usbl_31"/>
+    </joint>
+
+    <link name="usbl_32"/>
+    <joint name="usbl_32_joint" type="fixed">
+        <origin xyz="0.0 0.0 -0.06" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="usbl_32"/>
+    </joint>
 
     <link name="odometry_sf"/>
     <joint name="odometry_sf_joint" type="fixed">

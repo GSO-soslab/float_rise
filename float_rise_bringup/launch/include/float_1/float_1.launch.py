@@ -97,14 +97,11 @@ def generate_launch_description():
         ),
 
         # stonefish usbl convector
-        Node(
-            package="world_of_stonefish",
-            executable="usbl_driver_node",
-            namespace=robot_name,
-            name="usbl_driver_node",
-            # parameters=[
-                # {'frame_id': world_frame}
-                # ]
-        )
+        # Node(
+        #     package="world_of_stonefish",
+        #     executable="usbl_driver_node",
+        #     namespace=robot_name,
+        #     name="usbl_driver_node",
+        # )
 
     ])
