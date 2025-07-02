@@ -1,12 +1,12 @@
 bhv_depth_tracking:
 
-  depth_list: [10.0, 0.5]
+  depth_list: [50.0, 10.0]
 
   depth_time_list: [5.0, 5.0]
 
   pitch_list: [0.0, 0.0]
 
-  initial_wait_time: 3.0
+  initial_wait_time: 7.0
 
   depth_failed_timeout: 60.0
 

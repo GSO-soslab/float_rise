@@ -77,14 +77,14 @@ def generate_launch_description():
             ]
         ),
 
-        # # stonefish DVL convector
-        # Node(
-        #     package="world_of_stonefish",
-        #     executable="dvl_driver_node",
-        #     namespace=robot_name,
-        #     name="dvl_driver_node",
-        #     parameters=[stonefish_driver_param_file]
-        # ),
+        # stonefish DVL convector
+        Node(
+            package="world_of_stonefish",
+            executable="dvl_driver_node",
+            namespace=robot_name,
+            name="dvl_driver_node",
+            parameters=[stonefish_driver_param_file]
+        ),
 
         # stonefish pressure convector
         Node(

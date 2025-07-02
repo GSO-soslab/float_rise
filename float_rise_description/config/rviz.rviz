@@ -6,6 +6,8 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /Float2_Odom1/Shape1
+        - /Float3_Odom1/Shape1
       Splitter Ratio: 0.5323193669319153
     Tree Height: 509
   - Class: rviz_common/Selection
@@ -48,14 +50,32 @@ Visualization Manager:
       Reference Frame: <Fixed Frame>
       Value: true
     - Alpha: 0.5
-      Cell Size: 5
+      Cell Size: 50
       Class: rviz_default_plugins/Grid
       Color: 51; 209; 122
       Enabled: true
       Line Style:
         Line Width: 0.029999999329447746
         Value: Lines
-      Name: VertialGrid
+      Name: VertialGrid_50
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Plane: YZ
+      Plane Cell Count: 2
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Alpha: 0.5
+      Cell Size: 10
+      Class: rviz_default_plugins/Grid
+      Color: 51; 209; 122
+      Enabled: true
+      Line Style:
+        Line Width: 0.029999999329447746
+        Value: Lines
+      Name: VertialGrid_10
       Normal Cell Count: 0
       Offset:
         X: 0
@@ -72,6 +92,10 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
+        float_rise_1/acomm_21:
+          Value: true
+        float_rise_1/acomm_31:
+          Value: true
         float_rise_1/base_link:
           Value: true
         float_rise_1/cg_link:
@@ -92,14 +116,18 @@ Visualization Manager:
           Value: false
         float_rise_1/stbd_thruster_link:
           Value: false
-        float_rise_1/usbl:
-          Value: false
+        float_rise_1/usbl_12:
+          Value: true
+        float_rise_1/usbl_13:
+          Value: true
         float_rise_1/world:
           Value: true
         float_rise_1/world_ned:
           Value: false
-        float_rise_2/acomm:
-          Value: false
+        float_rise_2/acomm_12:
+          Value: true
+        float_rise_2/acomm_32:
+          Value: true
         float_rise_2/base_link:
           Value: true
         float_rise_2/cg_link:
@@ -120,10 +148,18 @@ Visualization Manager:
           Value: false
         float_rise_2/stbd_thruster_link:
           Value: false
+        float_rise_2/usbl_21:
+          Value: true
+        float_rise_2/usbl_23:
+          Value: true
         float_rise_2/world:
           Value: false
         float_rise_2/world_ned:
           Value: false
+        float_rise_3/acomm_13:
+          Value: true
+        float_rise_3/acomm_23:
+          Value: true
         float_rise_3/base_link:
           Value: true
         float_rise_3/cg_link:
@@ -144,6 +180,10 @@ Visualization Manager:
           Value: false
         float_rise_3/stbd_thruster_link:
           Value: false
+        float_rise_3/usbl_31:
+          Value: true
+        float_rise_3/usbl_32:
+          Value: true
         float_rise_3/world:
           Value: false
         float_rise_3/world_ned:
@@ -157,6 +197,10 @@ Visualization Manager:
         float_rise_1/world:
           float_rise_1/odom:
             float_rise_1/base_link:
+              float_rise_1/acomm_21:
+                {}
+              float_rise_1/acomm_31:
+                {}
               float_rise_1/cg_link:
                 {}
               float_rise_1/gps:
@@ -173,14 +217,18 @@ Visualization Manager:
                 {}
               float_rise_1/stbd_thruster_link:
                 {}
-              float_rise_1/usbl:
+              float_rise_1/usbl_12:
+                {}
+              float_rise_1/usbl_13:
                 {}
           float_rise_1/world_ned:
             {}
           float_rise_2/world:
             float_rise_2/odom:
               float_rise_2/base_link:
-                float_rise_2/acomm:
+                float_rise_2/acomm_12:
+                  {}
+                float_rise_2/acomm_32:
                   {}
                 float_rise_2/cg_link:
                   {}
@@ -198,11 +246,19 @@ Visualization Manager:
                   {}
                 float_rise_2/stbd_thruster_link:
                   {}
+                float_rise_2/usbl_21:
+                  {}
+                float_rise_2/usbl_23:
+                  {}
             float_rise_2/world_ned:
               {}
           float_rise_3/world:
             float_rise_3/odom:
               float_rise_3/base_link:
+                float_rise_3/acomm_13:
+                  {}
+                float_rise_3/acomm_23:
+                  {}
                 float_rise_3/cg_link:
                   {}
                 float_rise_3/gps:
@@ -218,6 +274,10 @@ Visualization Manager:
                 float_rise_3/pressure:
                   {}
                 float_rise_3/stbd_thruster_link:
+                  {}
+                float_rise_3/usbl_31:
+                  {}
+                float_rise_3/usbl_32:
                   {}
             float_rise_3/world_ned:
               {}
@@ -260,6 +320,123 @@ Visualization Manager:
         History Policy: Keep Last
         Reliability Policy: Reliable
         Value: /float_rise/stonefish/usbl
+      Value: true
+    - Angle Tolerance: 0.10000000149011612
+      Class: rviz_default_plugins/Odometry
+      Covariance:
+        Orientation:
+          Alpha: 0.5
+          Color: 255; 255; 127
+          Color Style: Unique
+          Frame: Local
+          Offset: 1
+          Scale: 1
+          Value: true
+        Position:
+          Alpha: 0.30000001192092896
+          Color: 204; 51; 204
+          Scale: 1
+          Value: true
+        Value: false
+      Enabled: true
+      Keep: 10000
+      Name: Float1_Odom
+      Position Tolerance: 0.10000000149011612
+      Shape:
+        Alpha: 1
+        Axes Length: 1
+        Axes Radius: 0.10000000149011612
+        Color: 255; 25; 0
+        Head Length: 0.10000000149011612
+        Head Radius: 0.10000000149011612
+        Shaft Length: 0.5
+        Shaft Radius: 0.05000000074505806
+        Value: Arrow
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /float_rise_1/odometry/filtered
+      Value: true
+    - Angle Tolerance: 0.10000000149011612
+      Class: rviz_default_plugins/Odometry
+      Covariance:
+        Orientation:
+          Alpha: 0.5
+          Color: 255; 255; 127
+          Color Style: Unique
+          Frame: Local
+          Offset: 1
+          Scale: 1
+          Value: true
+        Position:
+          Alpha: 0.30000001192092896
+          Color: 204; 51; 204
+          Scale: 1
+          Value: true
+        Value: false
+      Enabled: true
+      Keep: 10000
+      Name: Float2_Odom
+      Position Tolerance: 0.10000000149011612
+      Shape:
+        Alpha: 1
+        Axes Length: 1
+        Axes Radius: 0.10000000149011612
+        Color: 246; 211; 45
+        Head Length: 0.10000000149011612
+        Head Radius: 0.10000000149011612
+        Shaft Length: 0.5
+        Shaft Radius: 0.05000000074505806
+        Value: Arrow
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /float_rise_2/odometry/filtered
+      Value: true
+    - Angle Tolerance: 0.10000000149011612
+      Class: rviz_default_plugins/Odometry
+      Covariance:
+        Orientation:
+          Alpha: 0.5
+          Color: 255; 255; 127
+          Color Style: Unique
+          Frame: Local
+          Offset: 1
+          Scale: 1
+          Value: true
+        Position:
+          Alpha: 0.30000001192092896
+          Color: 204; 51; 204
+          Scale: 1
+          Value: true
+        Value: false
+      Enabled: true
+      Keep: 10000
+      Name: Float3_Odom
+      Position Tolerance: 0.10000000149011612
+      Shape:
+        Alpha: 1
+        Axes Length: 1
+        Axes Radius: 0.10000000149011612
+        Color: 51; 209; 122
+        Head Length: 0.10000000149011612
+        Head Radius: 0.10000000149011612
+        Shaft Length: 0.5
+        Shaft Radius: 0.05000000074505806
+        Value: Arrow
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /float_rise_3/odometry/filtered
       Value: true
   Enabled: true
   Global Options:
@@ -307,7 +484,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 15.09054946899414
+      Distance: 14.349287986755371
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -322,10 +499,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.2247961461544037
+      Pitch: 0.8697956800460815
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 6.153585910797119
+      Yaw: 6.218585968017578
     Saved: ~
 Window Geometry:
   Displays:
@@ -343,5 +520,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1009
-  X: 698
-  Y: 98
+  X: 325
+  Y: 42
