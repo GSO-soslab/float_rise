@@ -10,7 +10,7 @@ import time
 
 
 def generate_launch_description():
-    robot_bringup = 'float_rise_bringup'
+    robot_num = 2
 
     # =================================================== #
     # bringup everything related to stonefish simulator
@@ -18,63 +18,73 @@ def generate_launch_description():
 
     simulation = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(robot_bringup), 
-            'launch', 'multi_floats', 'stonefish_env.launch.py')]),
+            os.path.join(get_package_share_directory('float_rise_bringup'), 
+            'launch', 'multi_floats', 'bringup_stonefish.launch.py')]),
         launch_arguments = {
-            'num_robots' : '3',
+            'num_robots' : str(robot_num),
         }.items()   
-
-        # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
     )    
 
-    # # =================================================== #
-    # # bringup everything related to ros setup for float 1
-    # # =================================================== #
+    # =================================================== #
+    # bringup everything related to ros setup for float 1
+    # =================================================== #
 
-    # float_1 = IncludeLaunchDescription(
+    ### TODO: all the node has same namespace: such as 3 float_rise_1/mvp_helm
+    # floats = IncludeLaunchDescription(
     #     PythonLaunchDescriptionSource([
-    #         os.path.join(get_package_share_directory(robot_bringup), 
-    #         'launch', 'include', 'bringup_float_1.launch.py')]),
-    #     # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
-    # )   
+    #         os.path.join(get_package_share_directory('float_rise_bringup'), 
+    #         'launch', 'multi_floats', 'bringup_multi_nav.launch.py')]),
+    #     launch_arguments = {
+    #         'num_robots' : str(robot_num),
+    #         'launch_delay' : '1.0',
+    #     }.items()   
+    # )    
 
-    # # =================================================== #
-    # # bringup everything related to ros setup for float 2
-    # # =================================================== #
+    ### TODO: control_delay not exits...
+    # floats = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory('float_rise_bringup'), 
+    #         'launch', 'multi_floats', 'bringup_nav_stack.launch.py')]),
+    #     launch_arguments = {
+    #         'num_robots' : str(robot_num),
+    #         'launch_delay' : '5.0',
+    #     }.items()   
+    # )    
+
+    float_1 = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            os.path.join(get_package_share_directory('float_rise_bringup'), 
+            'launch', 'multi_floats', 'bringup_navigation.launch.py')]),
+        launch_arguments = {
+            'robot_name' : 'float_rise_1',
+        }.items()   
+    )   
 
     # float_2 = IncludeLaunchDescription(
     #     PythonLaunchDescriptionSource([
-    #         os.path.join(get_package_share_directory(robot_bringup), 
-    #         'launch', 'include', 'bringup_float_2.launch.py')]),
-    #     # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
-    # ) 
-
-    # # =================================================== #
-    # # bringup everything related to ros setup for float 3
-    # # =================================================== #
-
-    # float_3 = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource([
-    #         os.path.join(get_package_share_directory(robot_bringup), 
-    #         'launch', 'include', 'bringup_float_3.launch.py')]),
-    #     # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
-    # ) 
+    #         os.path.join(get_package_share_directory('float_rise_bringup'), 
+    #         'launch', 'multi_floats', 'bringup_navigation.launch.py')]),
+    #     launch_arguments = {
+    #         'robot_name' : 'float_rise_2',
+    #     }.items()   
+    # )   
 
     # =================================================== #
     # bringup visualization
     # =================================================== #
 
-    # vis = IncludeLaunchDescription(
-    #     PythonLaunchDescriptionSource([
-    #         os.path.join(get_package_share_directory(robot_bringup), 
-    #         'launch', 'include', 'bringup_visualization.launch.py')]),
-    #     # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
-    # )    
+    vis = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([
+            os.path.join(get_package_share_directory('float_rise_bringup'), 
+            'launch', 'multi_floats', 'bringup_visualization.launch.py')]),
+        # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
+    )    
 
     return LaunchDescription([
         simulation,
-        # float_1,
+        # floats,
+        float_1,
         # float_2,
         # float_3,
-        # vis,
+        vis,
     ])    

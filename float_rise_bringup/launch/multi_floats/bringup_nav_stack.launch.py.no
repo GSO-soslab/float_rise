@@ -1,0 +1,92 @@
+import os
+from ament_index_python.packages import get_package_share_directory
+from launch import LaunchDescription, LaunchContext
+from launch.actions import (
+    IncludeLaunchDescription,
+    DeclareLaunchArgument,
+    OpaqueFunction,
+    TimerAction,
+    GroupAction
+)
+from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import LaunchConfiguration
+
+def generate_robot_launches(context: LaunchContext):
+    """
+    This function is executed at launch time. It now generates the IncludeLaunchDescription
+    actions for ALL components of each robot, with a configurable delay between each robot.
+    """
+    # Get the launch arguments
+    num_robots = int(context.perform_substitution(LaunchConfiguration('num_robots')))
+    launch_delay = float(context.perform_substitution(LaunchConfiguration('launch_delay')))
+    robot_bringup_pkg = get_package_share_directory('float_rise_bringup')
+    multi_float_launch_dir = os.path.join(robot_bringup_pkg, 'launch', 'multi_floats')
+
+    print(f"--- Generating {num_robots} robot nav stacks with a {launch_delay}s delay between each ---")
+
+    # This list will hold the delayed GroupAction for each robot
+    delayed_robot_launches = []
+
+    for i in range(num_robots):
+        robot_id = i + 1
+        robot_name_str = 'float_rise_' + str(robot_id)
+        
+        # We now create the includes for each component directly, passing the concrete robot_name string
+        description_launch = IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(os.path.join(multi_float_launch_dir, 'description.launch.py')),
+            launch_arguments={'robot_name': robot_name_str, 'description_delay': '0.0'}.items()
+        )
+
+        localization_launch = IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(os.path.join(multi_float_launch_dir, 'localization.launch.py')),
+            launch_arguments={'robot_name': robot_name_str, 'localization_delay': '1.0'}.items()
+        )
+
+        mvp_control_launch = IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(os.path.join(multi_float_launch_dir, 'mvp_control.launch.py')),
+            launch_arguments={'robot_name': robot_name_str, 'control_delay': '2.0'}.items()
+        )
+        
+        mvp_mission_launch = IncludeLaunchDescription(
+            PythonLaunchDescriptionSource(os.path.join(multi_float_launch_dir, 'mvp_mission.launch.py')),
+            launch_arguments={'robot_name': robot_name_str, 'mission_delay': '3.0'}.items()
+        )
+
+        # Group all actions for a single robot together.
+        # This makes the launch file cleaner and is good practice.
+        all_actions_for_one_robot = GroupAction(
+            actions=[
+                description_launch,
+                localization_launch,
+                mvp_control_launch,
+                mvp_mission_launch
+            ]
+        )
+
+        # Calculate the delay for the *start* of this robot's launch sequence
+        robot_group_delay = i * launch_delay
+
+        # Create a TimerAction to delay the launch of the entire group of nodes for this robot
+        delayed_group = TimerAction(
+            period=robot_group_delay,
+            actions=[all_actions_for_one_robot]
+        )
+        
+        delayed_robot_launches.append(delayed_group)
+
+    return delayed_robot_launches
+
+def generate_launch_description():
+    return LaunchDescription([
+        DeclareLaunchArgument(
+            'num_robots',
+            default_value='2',
+            description='The number of float robots to launch.'
+        ),
+        DeclareLaunchArgument(
+            'launch_delay',
+            default_value='5.0', # Increased default delay to see staggering clearly
+            description='Delay in seconds between launching each robot.'
+        ),
+        OpaqueFunction(function=generate_robot_launches),
+    ])

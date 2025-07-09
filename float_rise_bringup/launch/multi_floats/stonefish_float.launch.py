@@ -1,10 +1,9 @@
 import os
-
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription, LaunchContext
 from launch_ros.actions import Node
 from launch.substitutions import LaunchConfiguration
-from launch.actions import DeclareLaunchArgument, LogInfo, OpaqueFunction
+from launch.actions import DeclareLaunchArgument, OpaqueFunction
 from launch_ros.substitutions import FindPackageShare
 
 # This function will be executed at launch time
@@ -14,48 +13,48 @@ def launch_setup(context: LaunchContext):
     with the final, concrete paths.
     """
     # 1. Resolve the substitutions into plain Python strings
-    robot_id_str = context.perform_substitution(LaunchConfiguration('arg_robot_id'))
-    robot_name_str = context.perform_substitution(LaunchConfiguration('arg_robot_name'))
-    pkg_share_path = context.perform_substitution(FindPackageShare('float_rise_bringup'))
-
-    # 2. e.g., 'float_0', the folder name contains param for each robot
-    robot_param = f'float_{robot_id_str}' 
-    
-    stonefish_driver_param_file = os.path.join(
-        pkg_share_path,
-        'config',
-        robot_param,
-        'sim_params.yaml'
-    )
+    # robot_name_str = context.perform_substitution(LaunchConfiguration('arg_robot_name'))
 
     # 3. Create the Node objects
+    robot_name_prefix = ['/', LaunchConfiguration('arg_robot_name'), '_', LaunchConfiguration('arg_robot_id')]
+    robot_name = [LaunchConfiguration('arg_robot_name'), '_', LaunchConfiguration('arg_robot_id')]
 
     # stonefish thruster convector
     thruster_convector = Node(
         package="world_of_stonefish",
         executable="thruster_driver_node",
-        namespace=[robot_name_str, '_', LaunchConfiguration('arg_robot_id')],
+        namespace=robot_name,
         name="thruster_driver_node",
-        # name=['thruster_driver_', robot_name_str, '_', LaunchConfiguration('arg_robot_id')],
         # prefix=['stdbuf -o L'],
         # output="screen",
-        parameters=[stonefish_driver_param_file]
+        parameters=[
+            {'thruster_pub_topic': robot_name_prefix + ['/stonefish/thruster_command']},
+            {'thruster_length': 2},
+            {'thruster_sub_topics': [
+                robot_name_prefix + ['/control/thruster/port'],
+                robot_name_prefix + ['/control/thruster/stbd']
+            ]},
+        ]
     )
 
     # stonefish IMU convector
     imu_convector = Node(
         package="world_of_stonefish",
         executable="imu_driver_node",
-        namespace=[robot_name_str, '_', LaunchConfiguration('arg_robot_id')],
+        namespace=robot_name,
         name="imu_driver_node",
-        # name=['imu_driver_', robot_name_str, '_', LaunchConfiguration('arg_robot_id')],
         remappings=[
                 ('imu_in/data', 'imu/stonefish/data'),
                 ('imu_out/data', 'imu/data'),
         ],
         parameters=[
-            {'frame_id': [robot_name_str, '_', LaunchConfiguration('arg_robot_id'), '/imu_sf']},
-            stonefish_driver_param_file
+            {'frame_id': robot_name + ['/imu_sf']},
+            {'roll_offset': 3.1415926},
+            {'pitch_offset': 0.0},
+            {'yaw_offset': 1.5707},
+            {'roll_reverse': 1.0},
+            {'pitch_reverse': -1.0},
+            {'yaw_reverse': -1.0},
         ]
     )
 
@@ -63,27 +62,28 @@ def launch_setup(context: LaunchContext):
     dvl_convector = Node(
         package="world_of_stonefish",
         executable="dvl_driver_node",
-        namespace=[robot_name_str, '_',  LaunchConfiguration('arg_robot_id')],
+        namespace=robot_name,
         name="dvl_driver_node",
-        # name=['dvl_driver_', robot_name_str, '_', LaunchConfiguration('arg_robot_id')],
-        parameters=[stonefish_driver_param_file]
+        parameters=[
+            {'dvl_in': robot_name_prefix + ['/dvl/stonefish/raw']},
+            {'dvl_out': robot_name_prefix + ['/dvl/twist']},
+            {'dvl_alt_out': robot_name_prefix + ['/dvl/altitude']},
+        ]
     )
 
     # stonefish pressure convector
     pressure_convector = Node(
         package="world_of_stonefish",
         executable="pressure_sensor_node",
-        namespace=[robot_name_str, '_', LaunchConfiguration('arg_robot_id')],
+        namespace=robot_name,
         name="pressure_sensor_node",
-        # name=['pressure_sensor_', robot_name_str, '_', LaunchConfiguration('arg_robot_id')],
         parameters=[
-            {'frame_id': [robot_name_str, '_',  LaunchConfiguration('arg_robot_id'), '/world']}]
+            {'frame_id': robot_name + ['/world']}]
     )
 
     ### DEBUG:
-    # print(f"--- Loading parameters from: {stonefish_driver_param_file} ---")
-    # print(f"--- robot_id: {robot_id_str} ---")
-    # print(f"--- robot_name: {robot_name_str} ---")
+    # print(f"--- robot_id: {robot_name_prefix} ---")
+    # print(f"--- robot_name: {robot_name} ---")
 
     # 4. An OpaqueFunction must return a list of launch actions/nodes
     return [thruster_convector, imu_convector, dvl_convector, pressure_convector]

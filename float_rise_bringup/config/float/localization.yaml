@@ -1,4 +1,5 @@
-/float_rise/ekf_filter_node:
+# /float_rise_1/ekf_filter_node:
+/**:
   ros__parameters:
     frequency: 20.0
     sensor_timeout: 0.1
@@ -12,10 +13,10 @@
     publish_acceleration: false
     publish_tf: true
     #frames
-    map_frame: float_rise/map              # Defaults to "map" if unspecified
-    odom_frame: float_rise/odom            # Defaults to "odom" if unspecified
-    base_link_frame: float_rise/base_link  # Defaults to "base_link" if unspecified
-    world_frame: float_rise/odom           # Defaults to the value of odom_frame if unspecified
+    # map_frame: float_rise_1/map              # Defaults to "map" if unspecified
+    # odom_frame: float_rise_1/odom            # Defaults to "odom" if unspecified
+    # base_link_frame: float_rise_1/base_link  # Defaults to "base_link" if unspecified
+    # world_frame: float_rise_1/odom           # Defaults to the value of odom_frame if unspecified
 
     #imu data input
     imu0: imu/data
@@ -146,13 +147,3 @@
     # are ordered as x, y, z, roll, pitch, yaw, vx, vy, vz, vroll, vpitch, vyaw, ax, ay, az. Defaults to the diagonal values below
     # if unspecified. In this example, we specify only the diagonal of the matrix.
     # initial_estimate_covariance: [1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9, 1e-9]
-
-
-/float_rise/world_odom_transform_node:
-  ros__parameters:
-    acceptable_var: 5.0
-    m_gps_wait_time: 30.0
-    datum_latitude: 41.0
-    datum_longitude: -71.0
-    position_accuracy: 3.0
-    mag_declination_auto: false
