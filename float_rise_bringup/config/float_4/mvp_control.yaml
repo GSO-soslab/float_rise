@@ -1,0 +1,13 @@
+/float_rise_4/mvp_control_ros_node:
+  ros__parameters:
+    generator_type: tf
+    controller_frequency: 20.0
+    enabled: false
+    child_link_initial: cg_link
+    world_link_initial: world_ned
+    controller_no_setpoint_timeout: 1.0
+    # use_restoring_effort: false
+    # gravity: 255.0
+    # buoyancy: -265.0
+    # gravity_link: cg_link
+    # buoyancy_link: cb_link    # define the cb_link, check race2    

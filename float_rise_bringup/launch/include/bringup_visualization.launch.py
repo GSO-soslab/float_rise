@@ -13,6 +13,11 @@ def generate_launch_description():
 
     return LaunchDescription([
 
+        # =================================================================== #
+        # TF for float_1 and any other float_# for world
+        # so you can get noise tf between each float
+        # =================================================================== #
+
         # connect the float1 and float2
         Node(
             package='tf2_ros',
@@ -28,6 +33,26 @@ def generate_launch_description():
             name='float1_float3',
             arguments = ["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", 'float_rise_1/world', 'float_rise_3/world']    
         ),
+
+        # connect the float1 and float4
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='float1_float4',
+            arguments = ["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", 'float_rise_1/world', 'float_rise_4/world']    
+        ),
+
+        # connect the float1 and float5
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='float1_float5',
+            arguments = ["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", 'float_rise_1/world', 'float_rise_5/world']    
+        ),
+
+        # =================================================================== #
+        # TF for world_ned and world for each float
+        # =================================================================== #
 
         # connect world and world_ned for float1
         Node(
@@ -51,6 +76,22 @@ def generate_launch_description():
             executable='static_transform_publisher',
             name='float3_world_ned',
             arguments = ["0.0", "0.0", "0.0", "1.571", "0.0", "3.1415", 'float_rise_3/world', 'float_rise_3/world_ned']    
+        ),    
+
+        # connect world and world_ned for float4
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='float4_world_ned',
+            arguments = ["0.0", "0.0", "0.0", "1.571", "0.0", "3.1415", 'float_rise_4/world', 'float_rise_4/world_ned']    
+        ),    
+
+        # connect world and world_ned for float5
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='float5_world_ned',
+            arguments = ["0.0", "0.0", "0.0", "1.571", "0.0", "3.1415", 'float_rise_5/world', 'float_rise_5/world_ned']    
         ),    
 
         # rviz

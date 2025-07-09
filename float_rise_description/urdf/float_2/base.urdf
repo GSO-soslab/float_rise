@@ -82,7 +82,7 @@
         <child link="gps"/>
     </joint>
 
-    <link name="acomm_12"/>
+    <!-- <link name="acomm_12"/>
     <joint name="acomm_12_joint" type="fixed">
         <origin xyz="0.0 0.0 -0.06" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
@@ -108,7 +108,7 @@
         <origin xyz="0.0 0.0 -0.06" rpy="0.0 0.0 0.0"/>
         <parent link="base_link"/>
         <child link="acomm_32"/>
-    </joint>
+    </joint> -->
 
     <link name="odometry_sf"/>
     <joint name="odometry_sf_joint" type="fixed">

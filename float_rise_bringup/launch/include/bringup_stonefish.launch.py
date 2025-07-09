@@ -15,7 +15,8 @@ def generate_launch_description():
     # simulator setup
     # ======================================================================= #
     world_of_stonefish_dir = get_package_share_directory('world_of_stonefish')
-    sim_world = 'swarm_floats.scn'
+    # sim_world = 'swarm_floats.scn'
+    sim_world = 'multiple_floats.scn'
     simulation_data = os.path.join(world_of_stonefish_dir, 'data/')
     scenario_desc = os.path.join(world_of_stonefish_dir, 'world', sim_world)
     simulation_rate = "100"
@@ -38,48 +39,74 @@ def generate_launch_description():
     # ======================================================================= #
     robot_bringup = 'float_rise_bringup'
 
-    # bringup the 1st float
-    sim_float_1 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(robot_bringup),
-            'launch', 'include', 'float_1', 'float_1.launch.py')]),
-        launch_arguments = {
-            'arg_robot_name': 'float_rise_1',
-            'arg_world_frame': 'float_rise_1/world',
-            'arg_imu_frame': 'float_rise_1/imu_sf'
-        }.items()    
-    )   
+    # # bringup the No.1 float
+    # sim_float_1 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup),
+    #         'launch', 'include', 'float_1', 'float_1.launch.py')]),
+    #     launch_arguments = {
+    #         'arg_robot_name': 'float_rise_1',
+    #         'arg_world_frame': 'float_rise_1/world',
+    #         'arg_imu_frame': 'float_rise_1/imu_sf'
+    #     }.items()    
+    # )   
 
-    # bringup the 2nd float
-    sim_float_2 = IncludeLaunchDescription(
+    # # bringup the No.2 float
+    # sim_float_2 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup),
+    #         'launch', 'include', 'float_2', 'float_2.launch.py')]),
+    #     launch_arguments = {
+    #         'arg_robot_name': 'float_rise_2',
+    #         'arg_world_frame': 'float_rise_2/world',
+    #         'arg_imu_frame': 'float_rise_2/imu_sf'
+    #     }.items()    
+    # )  
+
+    # # bringup the No.3 float
+    # sim_float_3 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup),
+    #         'launch', 'include', 'float_3', 'float_3.launch.py')]),
+    #     launch_arguments = {
+    #         'arg_robot_name': 'float_rise_3',
+    #         'arg_world_frame': 'float_rise_3/world',
+    #         'arg_imu_frame': 'float_rise_3/imu_sf'
+    #     }.items()    
+    # )      
+
+    # # bringup the No.4 float
+    # sim_float_4 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup),
+    #         'launch', 'include', 'float_4', 'float_4.launch.py')]),
+    #     launch_arguments = {
+    #         'arg_robot_name': 'float_rise_4',
+    #         'arg_world_frame': 'float_rise_4/world',
+    #         'arg_imu_frame': 'float_rise_4/imu_sf'
+    #     }.items()    
+    # )  
+
+    # bringup the No.5 float
+    sim_float_5 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             os.path.join(get_package_share_directory(robot_bringup),
-            'launch', 'include', 'float_2', 'float_2.launch.py')]),
+            'launch', 'include', 'float_5', 'float_5.launch.py')]),
         launch_arguments = {
-            'arg_robot_name': 'float_rise_2',
-            'arg_world_frame': 'float_rise_2/world',
-            'arg_imu_frame': 'float_rise_2/imu_sf'
+            'arg_robot_name': 'float_rise_5',
+            'arg_world_frame': 'float_rise_5/world',
+            'arg_imu_frame': 'float_rise_5/imu_sf'
         }.items()    
     )  
-
-    # bringup the 3rd float
-    sim_float_3 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(robot_bringup),
-            'launch', 'include', 'float_3', 'float_3.launch.py')]),
-        launch_arguments = {
-            'arg_robot_name': 'float_rise_3',
-            'arg_world_frame': 'float_rise_3/world',
-            'arg_imu_frame': 'float_rise_3/imu_sf'
-        }.items()    
-    )      
 
     # ======================================================================= #
     # all the nodes
     # ======================================================================= #
     return LaunchDescription([
         stonefish,
-        sim_float_1,
-        sim_float_2,
-        sim_float_3,
+        # sim_float_1,
+        # sim_float_2,
+        # sim_float_3,
+        # sim_float_4,
+        sim_float_5,
     ])
