@@ -134,7 +134,7 @@ Our MVP frame uses the acomms messgae to handle USBL and Acoustic Modem data tra
 - Installation
 ```sh
 cd ~/YOUR_ROS2_WORKSPACE/src
-git https://github.com/GSO-soslab/acomms_msgs
+git clone https://github.com/GSO-soslab/acomms_msgs
 cd acomms_msgs
 git checkout jazzy-devel
 ```           
