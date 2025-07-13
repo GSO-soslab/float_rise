@@ -39,7 +39,7 @@ def generate_launch_description():
     # ======================================================================= #
     robot_bringup = 'float_rise_bringup'
 
-    # # bringup the No.1 float
+    # # bringup the float-1
     # sim_float_1 = IncludeLaunchDescription(
     #     PythonLaunchDescriptionSource([
     #         os.path.join(get_package_share_directory(robot_bringup),
@@ -51,7 +51,7 @@ def generate_launch_description():
     #     }.items()    
     # )   
 
-    # # bringup the No.2 float
+    # # bringup the float-2
     # sim_float_2 = IncludeLaunchDescription(
     #     PythonLaunchDescriptionSource([
     #         os.path.join(get_package_share_directory(robot_bringup),
@@ -63,7 +63,7 @@ def generate_launch_description():
     #     }.items()    
     # )  
 
-    # # bringup the No.3 float
+    # # bringup the float-3
     # sim_float_3 = IncludeLaunchDescription(
     #     PythonLaunchDescriptionSource([
     #         os.path.join(get_package_share_directory(robot_bringup),
@@ -75,7 +75,7 @@ def generate_launch_description():
     #     }.items()    
     # )      
 
-    # # bringup the No.4 float
+    # # bringup the float-4
     # sim_float_4 = IncludeLaunchDescription(
     #     PythonLaunchDescriptionSource([
     #         os.path.join(get_package_share_directory(robot_bringup),
@@ -87,17 +87,41 @@ def generate_launch_description():
     #     }.items()    
     # )  
 
-    # bringup the No.5 float
-    sim_float_5 = IncludeLaunchDescription(
+    # # bringup the float-5
+    # sim_float_5 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup),
+    #         'launch', 'include', 'float_5', 'float_5.launch.py')]),
+    #     launch_arguments = {
+    #         'arg_robot_name': 'float_rise_5',
+    #         'arg_world_frame': 'float_rise_5/world',
+    #         'arg_imu_frame': 'float_rise_5/imu_sf'
+    #     }.items()    
+    # ) 
+    
+    # # bringup the float-6
+    # sim_float_6 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup),
+    #         'launch', 'include', 'float_6', 'float_6.launch.py')]),
+    #     launch_arguments = {
+    #         'arg_robot_name': 'float_rise_6',
+    #         'arg_world_frame': 'float_rise_6/world',
+    #         'arg_imu_frame': 'float_rise_6/imu_sf'
+    #     }.items()    
+    # )   
+
+    # bringup the float-7
+    sim_float_7 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             os.path.join(get_package_share_directory(robot_bringup),
-            'launch', 'include', 'float_5', 'float_5.launch.py')]),
+            'launch', 'include', 'float_7', 'float_7.launch.py')]),
         launch_arguments = {
-            'arg_robot_name': 'float_rise_5',
-            'arg_world_frame': 'float_rise_5/world',
-            'arg_imu_frame': 'float_rise_5/imu_sf'
+            'arg_robot_name': 'float_rise_7',
+            'arg_world_frame': 'float_rise_7/world',
+            'arg_imu_frame': 'float_rise_7/imu_sf'
         }.items()    
-    )  
+    )   
 
     # ======================================================================= #
     # all the nodes
@@ -108,5 +132,7 @@ def generate_launch_description():
         # sim_float_2,
         # sim_float_3,
         # sim_float_4,
-        sim_float_5,
+        # sim_float_5,
+        # sim_float_6,
+        sim_float_7,
     ])
