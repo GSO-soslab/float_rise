@@ -66,6 +66,22 @@ def generate_launch_description():
             arguments = ["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", 'float_rise_1/world', 'float_rise_7/world']    
         ),
 
+        # connect the float1 and float8
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='float1_float8',
+            arguments = ["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", 'float_rise_1/world', 'float_rise_8/world']    
+        ),
+
+        # connect the float1 and float9
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='float1_float9',
+            arguments = ["0.0", "0.0", "0.0", "0.0", "0.0", "0.0", 'float_rise_1/world', 'float_rise_9/world']    
+        ),        
+
         # =================================================================== #
         # TF for world_ned and world for each float
         # =================================================================== #
@@ -125,6 +141,22 @@ def generate_launch_description():
             name='float7_world_ned',
             arguments = ["0.0", "0.0", "0.0", "1.571", "0.0", "3.1415", 'float_rise_7/world', 'float_rise_7/world_ned']    
         ),    
+
+        # connect world and world_ned for float8
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='float8_world_ned',
+            arguments = ["0.0", "0.0", "0.0", "1.571", "0.0", "3.1415", 'float_rise_8/world', 'float_rise_8/world_ned']    
+        ),  
+
+        # connect world and world_ned for float9
+        Node(
+            package='tf2_ros',
+            executable='static_transform_publisher',
+            name='float9_world_ned',
+            arguments = ["0.0", "0.0", "0.0", "1.571", "0.0", "3.1415", 'float_rise_9/world', 'float_rise_9/world_ned']    
+        ),  
 
         # rviz
         Node(
