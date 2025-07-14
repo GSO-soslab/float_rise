@@ -135,15 +135,27 @@ def generate_launch_description():
     #     }.items()    
     # )  
 
-    # bringup the float-9
-    sim_float_9 = IncludeLaunchDescription(
+    # # bringup the float-9
+    # sim_float_9 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup),
+    #         'launch', 'include', 'float_9', 'float_9.launch.py')]),
+    #     launch_arguments = {
+    #         'arg_robot_name': 'float_rise_9',
+    #         'arg_world_frame': 'float_rise_9/world',
+    #         'arg_imu_frame': 'float_rise_9/imu_sf'
+    #     }.items()    
+    # )  
+
+    # bringup the float-10
+    sim_float_10 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             os.path.join(get_package_share_directory(robot_bringup),
-            'launch', 'include', 'float_9', 'float_9.launch.py')]),
+            'launch', 'include', 'float_10', 'float_10.launch.py')]),
         launch_arguments = {
-            'arg_robot_name': 'float_rise_9',
-            'arg_world_frame': 'float_rise_9/world',
-            'arg_imu_frame': 'float_rise_9/imu_sf'
+            'arg_robot_name': 'float_rise_10',
+            'arg_world_frame': 'float_rise_10/world',
+            'arg_imu_frame': 'float_rise_10/imu_sf'
         }.items()    
     )  
 
@@ -160,5 +172,6 @@ def generate_launch_description():
         # sim_float_6,
         # sim_float_7,
         # sim_float_8,
-        sim_float_9,
+        # sim_float_9,
+        sim_float_10,
     ])
