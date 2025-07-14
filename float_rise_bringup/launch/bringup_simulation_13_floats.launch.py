@@ -115,11 +115,19 @@ def generate_launch_description():
     #     # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
     # ) 
 
-    # Float No. 12
-    float_12 = IncludeLaunchDescription(
+    # # Float No. 12
+    # float_12 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup), 
+    #         'launch', 'include', 'bringup_float_12.launch.py')]),
+    #     # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
+    # ) 
+
+    # Float No. 13
+    float_13 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
             os.path.join(get_package_share_directory(robot_bringup), 
-            'launch', 'include', 'bringup_float_12.launch.py')]),
+            'launch', 'include', 'bringup_float_13.launch.py')]),
         # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
     ) 
 
@@ -147,6 +155,7 @@ def generate_launch_description():
         # float_9,
         # float_10,
         # float_11,
-        float_12,
+        # float_12,
+        float_13,
         vis,
     ])    
