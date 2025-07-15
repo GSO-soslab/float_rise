@@ -6,7 +6,7 @@ bhv_depth_tracking:
 
   pitch_list: [0.0, 0.0]
 
-  initial_wait_time: 1.0
+  initial_wait_time: 0.0
 
   depth_failed_timeout: 60.0
 
