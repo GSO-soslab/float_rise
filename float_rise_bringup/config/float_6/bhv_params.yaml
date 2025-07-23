@@ -10,7 +10,7 @@ bhv_depth_tracking:
 
   depth_failed_timeout: 60.0
 
-  acceptable_depth_band: 0.5
+  acceptable_depth_band: 1.0
 
   state_done: start
 
