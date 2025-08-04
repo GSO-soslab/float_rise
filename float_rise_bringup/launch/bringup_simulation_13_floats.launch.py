@@ -35,61 +35,61 @@ def generate_launch_description():
         # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
     )   
 
-    # Float No. 2
-    float_2 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(robot_bringup), 
-            'launch', 'include', 'bringup_float_2.launch.py')]),
-        # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
-    ) 
+    # # Float No. 2
+    # float_2 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup), 
+    #         'launch', 'include', 'bringup_float_2.launch.py')]),
+    #     # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
+    # ) 
 
-    # Float No. 3
-    float_3 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(robot_bringup), 
-            'launch', 'include', 'bringup_float_3.launch.py')]),
-        # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
-    ) 
+    # # Float No. 3
+    # float_3 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup), 
+    #         'launch', 'include', 'bringup_float_3.launch.py')]),
+    #     # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
+    # ) 
 
-    # Float No. 4
-    float_4 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(robot_bringup), 
-            'launch', 'include', 'bringup_float_4.launch.py')]),
-        # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
-    ) 
+    # # Float No. 4
+    # float_4 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup), 
+    #         'launch', 'include', 'bringup_float_4.launch.py')]),
+    #     # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
+    # ) 
 
-    # Float No. 5
-    float_5 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(robot_bringup), 
-            'launch', 'include', 'bringup_float_5.launch.py')]),
-        # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
-    ) 
+    # # Float No. 5
+    # float_5 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup), 
+    #         'launch', 'include', 'bringup_float_5.launch.py')]),
+    #     # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
+    # ) 
 
-    # Float No. 6
-    float_6 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(robot_bringup), 
-            'launch', 'include', 'bringup_float_6.launch.py')]),
-        # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
-    ) 
+    # # Float No. 6
+    # float_6 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup), 
+    #         'launch', 'include', 'bringup_float_6.launch.py')]),
+    #     # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
+    # ) 
 
-    # Float No. 7
-    float_7 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(robot_bringup), 
-            'launch', 'include', 'bringup_float_7.launch.py')]),
-        # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
-    ) 
+    # # Float No. 7
+    # float_7 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup), 
+    #         'launch', 'include', 'bringup_float_7.launch.py')]),
+    #     # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
+    # ) 
 
-    # Float No. 8
-    float_8 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(robot_bringup), 
-            'launch', 'include', 'bringup_float_8.launch.py')]),
-        # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
-    ) 
+    # # Float No. 8
+    # float_8 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup), 
+    #         'launch', 'include', 'bringup_float_8.launch.py')]),
+    #     # launch_arguments = {'arg_robot_name': arg_robot_name}.items()    
+    # ) 
 
     # # Float No. 9
     # float_9 = IncludeLaunchDescription(
@@ -145,13 +145,13 @@ def generate_launch_description():
     return LaunchDescription([
         simulation,
         float_1,
-        float_2,
-        float_3,
-        float_4,
-        float_5,
-        float_6,
-        float_7,
-        float_8,
+        # float_2,
+        # float_3,
+        # float_4,
+        # float_5,
+        # float_6,
+        # float_7,
+        # float_8,
 
         # float_9,
         # float_10,

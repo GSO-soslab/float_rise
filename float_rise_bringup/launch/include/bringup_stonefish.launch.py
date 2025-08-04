@@ -15,8 +15,8 @@ def generate_launch_description():
     # simulator setup
     # ======================================================================= #
     world_of_stonefish_dir = get_package_share_directory('world_of_stonefish')
-    # sim_world = 'swarm_floats.scn'
-    sim_world = 'multiple_floats.scn'
+    sim_world = 'swarm_floats.scn'
+    # sim_world = 'multiple_floats.scn'
     simulation_data = os.path.join(world_of_stonefish_dir, 'data/')
     scenario_desc = os.path.join(world_of_stonefish_dir, 'world', sim_world)
     simulation_rate = "100"
@@ -75,65 +75,65 @@ def generate_launch_description():
         }.items()    
     )      
 
-    # bringup the float-4
-    sim_float_4 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(robot_bringup),
-            'launch', 'include', 'float_4', 'float_4.launch.py')]),
-        launch_arguments = {
-            'arg_robot_name': 'float_rise_4',
-            'arg_world_frame': 'float_rise_4/world',
-            'arg_imu_frame': 'float_rise_4/imu_sf'
-        }.items()    
-    )  
+    # # bringup the float-4
+    # sim_float_4 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup),
+    #         'launch', 'include', 'float_4', 'float_4.launch.py')]),
+    #     launch_arguments = {
+    #         'arg_robot_name': 'float_rise_4',
+    #         'arg_world_frame': 'float_rise_4/world',
+    #         'arg_imu_frame': 'float_rise_4/imu_sf'
+    #     }.items()    
+    # )  
 
-    # bringup the float-5
-    sim_float_5 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(robot_bringup),
-            'launch', 'include', 'float_5', 'float_5.launch.py')]),
-        launch_arguments = {
-            'arg_robot_name': 'float_rise_5',
-            'arg_world_frame': 'float_rise_5/world',
-            'arg_imu_frame': 'float_rise_5/imu_sf'
-        }.items()    
-    ) 
+    # # bringup the float-5
+    # sim_float_5 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup),
+    #         'launch', 'include', 'float_5', 'float_5.launch.py')]),
+    #     launch_arguments = {
+    #         'arg_robot_name': 'float_rise_5',
+    #         'arg_world_frame': 'float_rise_5/world',
+    #         'arg_imu_frame': 'float_rise_5/imu_sf'
+    #     }.items()    
+    # ) 
     
-    # bringup the float-6
-    sim_float_6 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(robot_bringup),
-            'launch', 'include', 'float_6', 'float_6.launch.py')]),
-        launch_arguments = {
-            'arg_robot_name': 'float_rise_6',
-            'arg_world_frame': 'float_rise_6/world',
-            'arg_imu_frame': 'float_rise_6/imu_sf'
-        }.items()    
-    )   
+    # # bringup the float-6
+    # sim_float_6 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup),
+    #         'launch', 'include', 'float_6', 'float_6.launch.py')]),
+    #     launch_arguments = {
+    #         'arg_robot_name': 'float_rise_6',
+    #         'arg_world_frame': 'float_rise_6/world',
+    #         'arg_imu_frame': 'float_rise_6/imu_sf'
+    #     }.items()    
+    # )   
 
-    # bringup the float-7
-    sim_float_7 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(robot_bringup),
-            'launch', 'include', 'float_7', 'float_7.launch.py')]),
-        launch_arguments = {
-            'arg_robot_name': 'float_rise_7',
-            'arg_world_frame': 'float_rise_7/world',
-            'arg_imu_frame': 'float_rise_7/imu_sf'
-        }.items()    
-    )   
+    # # bringup the float-7
+    # sim_float_7 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup),
+    #         'launch', 'include', 'float_7', 'float_7.launch.py')]),
+    #     launch_arguments = {
+    #         'arg_robot_name': 'float_rise_7',
+    #         'arg_world_frame': 'float_rise_7/world',
+    #         'arg_imu_frame': 'float_rise_7/imu_sf'
+    #     }.items()    
+    # )   
 
-    # bringup the float-8
-    sim_float_8 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([
-            os.path.join(get_package_share_directory(robot_bringup),
-            'launch', 'include', 'float_8', 'float_8.launch.py')]),
-        launch_arguments = {
-            'arg_robot_name': 'float_rise_8',
-            'arg_world_frame': 'float_rise_8/world',
-            'arg_imu_frame': 'float_rise_8/imu_sf'
-        }.items()    
-    )  
+    # # bringup the float-8
+    # sim_float_8 = IncludeLaunchDescription(
+    #     PythonLaunchDescriptionSource([
+    #         os.path.join(get_package_share_directory(robot_bringup),
+    #         'launch', 'include', 'float_8', 'float_8.launch.py')]),
+    #     launch_arguments = {
+    #         'arg_robot_name': 'float_rise_8',
+    #         'arg_world_frame': 'float_rise_8/world',
+    #         'arg_imu_frame': 'float_rise_8/imu_sf'
+    #     }.items()    
+    # )  
 
     # # bringup the float-9
     # sim_float_9 = IncludeLaunchDescription(
@@ -203,11 +203,11 @@ def generate_launch_description():
         sim_float_1,
         sim_float_2,
         sim_float_3,
-        sim_float_4,
-        sim_float_5,
-        sim_float_6,
-        sim_float_7,
-        sim_float_8,
+        # sim_float_4,
+        # sim_float_5,
+        # sim_float_6,
+        # sim_float_7,
+        # sim_float_8,
 
         # sim_float_9,
         # sim_float_10,
