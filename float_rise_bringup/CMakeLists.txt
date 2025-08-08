@@ -23,12 +23,12 @@ find_package(tf2_ros REQUIRED)
 
 ##launch files
 install(DIRECTORY
-  launch
+  real
   DESTINATION share/${PROJECT_NAME}
 )
 
 install(DIRECTORY 
-  config 
+  simulation 
   DESTINATION share/${PROJECT_NAME}
 )
 

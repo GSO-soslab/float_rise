@@ -14,9 +14,8 @@ find_package(tf2_ros REQUIRED)
 # further dependencies manually.
 
 install(DIRECTORY 
-  config
-  mesh
-  urdf 
+  real
+  simulation 
   DESTINATION share/${PROJECT_NAME}
 )
 
