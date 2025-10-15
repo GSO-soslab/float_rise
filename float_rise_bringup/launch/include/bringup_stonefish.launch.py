@@ -15,14 +15,14 @@ def generate_launch_description():
     # simulator setup
     # ======================================================================= #
     world_of_stonefish_dir = get_package_share_directory('world_of_stonefish')
-    sim_world = 'swarm_floats.scn'
-    # sim_world = 'multiple_floats.scn'
+    # sim_world = 'swarm_floats.scn'
+    sim_world = 'multiple_floats.scn'
     simulation_data = os.path.join(world_of_stonefish_dir, 'data/')
     scenario_desc = os.path.join(world_of_stonefish_dir, 'world', sim_world)
     simulation_rate = "100"
-    window_res_x = "800"
-    window_res_y = "800"
-    rendering_quality ="high"
+    window_res_x = "1000"
+    window_res_y = "1000"
+    rendering_quality ="low"
 
     stonefish = Node(
         package="stonefish_ros2",
