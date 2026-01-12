@@ -96,6 +96,8 @@ Visualization Manager:
           Value: true
         float_rise_1/cg_link:
           Value: false
+        float_rise_1/dvl_sf:
+          Value: false
         float_rise_1/gps:
           Value: false
         float_rise_1/imu_sf:
@@ -136,6 +138,8 @@ Visualization Manager:
           Value: true
         float_rise_2/cg_link:
           Value: false
+        float_rise_2/dvl_sf:
+          Value: false
         float_rise_2/gps:
           Value: false
         float_rise_2/imu_sf:
@@ -159,6 +163,8 @@ Visualization Manager:
         float_rise_3/base_link:
           Value: true
         float_rise_3/cg_link:
+          Value: false
+        float_rise_3/dvl_sf:
           Value: false
         float_rise_3/gps:
           Value: false
@@ -184,6 +190,8 @@ Visualization Manager:
           Value: true
         float_rise_4/cg_link:
           Value: false
+        float_rise_4/dvl_sf:
+          Value: false
         float_rise_4/gps:
           Value: false
         float_rise_4/imu_sf:
@@ -207,6 +215,8 @@ Visualization Manager:
         float_rise_5/base_link:
           Value: true
         float_rise_5/cg_link:
+          Value: false
+        float_rise_5/dvl_sf:
           Value: false
         float_rise_5/gps:
           Value: false
@@ -232,6 +242,8 @@ Visualization Manager:
           Value: true
         float_rise_6/cg_link:
           Value: false
+        float_rise_6/dvl_sf:
+          Value: false
         float_rise_6/gps:
           Value: false
         float_rise_6/imu_sf:
@@ -256,6 +268,8 @@ Visualization Manager:
           Value: true
         float_rise_7/cg_link:
           Value: false
+        float_rise_7/dvl_sf:
+          Value: false
         float_rise_7/gps:
           Value: false
         float_rise_7/imu_sf:
@@ -279,6 +293,8 @@ Visualization Manager:
         float_rise_8/base_link:
           Value: true
         float_rise_8/cg_link:
+          Value: false
+        float_rise_8/dvl_sf:
           Value: false
         float_rise_8/gps:
           Value: false
@@ -315,6 +331,8 @@ Visualization Manager:
             float_rise_1/base_link:
               float_rise_1/cg_link:
                 {}
+              float_rise_1/dvl_sf:
+                {}
               float_rise_1/gps:
                 {}
               float_rise_1/imu_sf:
@@ -348,6 +366,8 @@ Visualization Manager:
               float_rise_2/base_link:
                 float_rise_2/cg_link:
                   {}
+                float_rise_2/dvl_sf:
+                  {}
                 float_rise_2/gps:
                   {}
                 float_rise_2/imu_sf:
@@ -368,6 +388,8 @@ Visualization Manager:
             float_rise_3/odom:
               float_rise_3/base_link:
                 float_rise_3/cg_link:
+                  {}
+                float_rise_3/dvl_sf:
                   {}
                 float_rise_3/gps:
                   {}
@@ -390,6 +412,8 @@ Visualization Manager:
               float_rise_4/base_link:
                 float_rise_4/cg_link:
                   {}
+                float_rise_4/dvl_sf:
+                  {}
                 float_rise_4/gps:
                   {}
                 float_rise_4/imu_sf:
@@ -410,6 +434,8 @@ Visualization Manager:
             float_rise_5/odom:
               float_rise_5/base_link:
                 float_rise_5/cg_link:
+                  {}
+                float_rise_5/dvl_sf:
                   {}
                 float_rise_5/gps:
                   {}
@@ -432,6 +458,8 @@ Visualization Manager:
               float_rise_6/base_link:
                 float_rise_6/cg_link:
                   {}
+                float_rise_6/dvl_sf:
+                  {}
                 float_rise_6/gps:
                   {}
                 float_rise_6/imu_sf:
@@ -453,6 +481,8 @@ Visualization Manager:
               float_rise_7/base_link:
                 float_rise_7/cg_link:
                   {}
+                float_rise_7/dvl_sf:
+                  {}
                 float_rise_7/gps:
                   {}
                 float_rise_7/imu_sf:
@@ -473,6 +503,8 @@ Visualization Manager:
             float_rise_8/odom:
               float_rise_8/base_link:
                 float_rise_8/cg_link:
+                  {}
+                float_rise_8/dvl_sf:
                   {}
                 float_rise_8/gps:
                   {}
@@ -696,7 +728,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 32.0175895690918
+      Distance: 23.143123626708984
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -711,10 +743,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.35479602217674255
+      Pitch: 1.209795355796814
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 6.178575038909912
+      Yaw: 0.025388117879629135
     Saved: ~
 Window Geometry:
   Displays:
@@ -733,4 +765,4 @@ Window Geometry:
     collapsed: true
   Width: 1920
   X: 0
-  Y: 32
+  Y: 212

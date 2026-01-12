@@ -40,11 +40,17 @@ def generate_launch_description():
     )
 
     imu_frame = LaunchConfiguration('arg_imu_frame')
-    arg_sensor_frame = DeclareLaunchArgument(
+    arg_imu_frame = DeclareLaunchArgument(
         'arg_imu_frame',
         default_value='float_rise/imu_sf'
     )
     
+    pressure_frame = LaunchConfiguration('arg_pressure_frame')
+    arg_pressure_frame = DeclareLaunchArgument(
+        'arg_pressure_frame',
+        default_value='float_rise/pressure'
+    )
+        
     # =================================================== #
     # launch the stonefish sensor convertor
     # =================================================== #
@@ -93,7 +99,9 @@ def generate_launch_description():
             namespace=robot_name,
             name="pressure_sensor_node",
             parameters=[
-                {'frame_id': world_frame}]
+                {'frame_id': world_frame},
+                {'child_frame_id': pressure_frame}
+            ]
         ),
 
         # # stonefish usbl convector

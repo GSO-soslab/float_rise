@@ -30,7 +30,9 @@ def generate_launch_description():
             name='ekf_filter_node',
             namespace=robot_name,
             # output='screen',
-            parameters=[localization_param_file],
+            parameters=[localization_param_file,
+                        # {'use_sim_time': True}
+                        ],
            ),
 
         Node(
@@ -43,7 +45,8 @@ def generate_launch_description():
             parameters=[
                 {'tf_prefix': robot_name},
                 {'mag_model_path': mag_model_path},
-                localization_param_file
+                localization_param_file,
+                # {'use_sim_time': True}
                 ],
             remappings=[
                     ('odometry', 'odometry/filtered'),

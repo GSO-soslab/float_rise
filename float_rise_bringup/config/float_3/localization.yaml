@@ -36,9 +36,9 @@
     # [ADVANCED] Some IMUs automatically remove acceleration due to gravity, and others don't. If yours doesn't, please set
     # this to true, and *make sure* your data conforms to REP-103, specifically, that the data is in ENU frame.
     
-
-    #dvl data
+    # #dvl data
     # twist0: dvl/twist
+    # twist0: rnn/predicted_velocity
     # twist0_config: [false, false, false,
     #                 false, false, false,
     #                 true,  true,  true,
@@ -47,9 +47,9 @@
     # twist0_queue_size: 5
     # twist0_rejection_threshold: 2.0
 
-    #pressure sensor
-    odom0: depth
-    odom0_config: [false,  false, true,
+    #GPS
+    odom0: gps/odometry
+    odom0_config: [true,  true,  false,
                     false, false, false,
                     false, false, false,
                     false, false, false,
@@ -58,12 +58,12 @@
     odom0_differential: false
     odom0_relative: false
     odom0_pose_use_child_frame: true
-    odom0_pose_rejection_threshold: 5.0
+    odom0_pose_rejection_threshold: 10.0
     odom0_twist_rejection_threshold: 1.0
 
-    #GPS
-    odom1: gps/odometry
-    odom1_config: [true,  true,  false,
+    #pressure sensor
+    odom1: depth
+    odom1_config: [false,  false, true,
                     false, false, false,
                     false, false, false,
                     false, false, false,
@@ -72,7 +72,7 @@
     odom1_differential: false
     odom1_relative: false
     odom1_pose_use_child_frame: true
-    odom1_pose_rejection_threshold: 10.0
+    odom1_pose_rejection_threshold: 5.0
     odom1_twist_rejection_threshold: 1.0
 
 

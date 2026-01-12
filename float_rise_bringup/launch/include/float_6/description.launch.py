@@ -24,7 +24,9 @@ def generate_launch_description():
             namespace=robot_name,
             # output='screen',
             parameters=[{'robot_description' : robot_desc},
-                        {'frame_prefix': robot_name +'/'}],
+                        {'frame_prefix': robot_name +'/'},
+                        # {'use_sim_time': True}
+                        ],
         ),
 
 ])

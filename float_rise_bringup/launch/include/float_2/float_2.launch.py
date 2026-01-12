@@ -40,9 +40,15 @@ def generate_launch_description():
     )
 
     imu_frame = LaunchConfiguration('arg_imu_frame')
-    arg_sensor_frame = DeclareLaunchArgument(
+    arg_imu_frame = DeclareLaunchArgument(
         'arg_imu_frame',
         default_value='float_rise/imu_sf'
+    )
+
+    pressure_frame = LaunchConfiguration('arg_pressure_frame')
+    arg_pressure_frame = DeclareLaunchArgument(
+        'arg_pressure_frame',
+        default_value='float_rise/pressure'
     )
     
     # =================================================== #
@@ -93,8 +99,24 @@ def generate_launch_description():
             namespace=robot_name,
             name="pressure_sensor_node",
             parameters=[
-                {'frame_id': world_frame}]
+                {'frame_id': world_frame},
+                {'child_frame_id': pressure_frame}
+            ]
         ),
+
+        # fake depth odometry in imu frame
+        # Node(
+        #     package="float_planner",
+        #     executable="imu_depth_node",
+        #     namespace=robot_name,
+        #     name="imu_depth_node",
+        #     # output="screen",
+        #     parameters=[
+        #         {'input_topic': 'depth'},
+        #         {'output_topic': 'imu_depth'},
+        #         {'frame': imu_frame}
+        #     ]            
+        # ),        
 
         # # stonefish usbl convector
         # Node(
