@@ -56,7 +56,7 @@ sudo apt install ros-jazzy-robot-localization libgsl-dev
 cd ~/YOUR_ROS2_WORKSPACE/src
 git clone --branch jazzy-devel https://github.com/GSO-soslab/acomms_msgs
 cd acomms_msgs
-git checkout -b d46c726
+git checkout d46c7260969a0195e68d382f584383728bba64fc
 cd ..
 
 # Float Planner:
@@ -71,35 +71,35 @@ git clone --branch jazzy-devel https://github.com/GSO-soslab/float_rise
 #   This is the low-level controller for the vehicle. It accepts desired pose and outputs thruster commands to control the vehice pose in a specific frame.
 git clone --branch jazzy-devel https://github.com/uri-ocean-robotics/mvp_control
 cd mvp_control
-git checkout -b 76f6dd8
+git checkout 76f6dd8860f46a2661a144e624c1e73cf7f99b25
 cd ..
 
 # MVP Mission:
 #   This is the the high level guidance system 
 git clone --branch jazzy-devel https://github.com/uri-ocean-robotics/mvp_mission
 cd mvp_mission
-git checkout -b 841cde7
+git checkout 841cde7e9f4bf0086f3b69b1c8347d032b9b3013
 cd ..
 
 # MVP MSG:
 #   This is the package contains custom defined ROS2 messages
 git clone --branch jazzy-devel https://github.com/uri-ocean-robotics/mvp_msgs
 cd mvp_msgs
-git checkout -b 64b119c
+git checkout 64b119c43918dacea16af9e1e04c205d997aa640
 cd ..
 
 # MVP Utilites:
 #   This package contains utilites scripts for localization and topic conversions
 git clone --branch jazzy-devel https://github.com/uri-ocean-robotics/mvp_utilities
 cd mvp_utilities
-git checkout -b e0a62ea
+git checkout e0a62eac978da9045499be1abab3d8f24e2cf896
 cd ..
 
 # Stonefish ROS2 wrapper:
 #   This wrapper is publish all the simulated sesnor data into ros2 msg.
 git clone --branch jazzy-devel https://github.com/GSO-soslab/stonefish_ros2
 cd stonefish_ros2
-git checkout -b c534077
+git checkout c534077fb577d7edb390cc72cc7603028bd05394
 cd ..
 
 # Stonefish setup:
@@ -133,3 +133,5 @@ cd ~/Your_ROS2_WORKSPACE
 source install/setup.bash 
 ros2 launch float_planner float_planner.launch.py
 ```
+
+## Modification on simulated float
