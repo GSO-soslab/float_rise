@@ -1,18 +1,5 @@
 # Floats simulation for the [RISE project](https://soslab.wordpress.com/rise/)
 
-## Introduction
-This is a repository of the simulation for swarm floats with acoustic devices (e.g., USBL or Acoustic modem).
-- Tested environment
-    - ROS version: Jazzy
-    - Ubuntu: 24.04
-- Directory information
-    - `float_rise` empty folder
-    - `float_rise_bringup` 
-        - `launch` includes launch files
-            - `include` folder include all files called in the main bringup simulation file.
-        - `config` includes all ros params *.yaml files which are called in the sub launch file in the `include` folder.
-    - `float_rise_config` include MVP configuration files. The files are in yaml format and was loaded in mvp code using yaml-cpp.
-    - `float_rise_description` include urdf files and rviz configuration files.
 
 ## Simulation Related Installation
 
@@ -25,12 +12,6 @@ We use [Stonefish](https://github.com/patrykcieslak/stonefish) Simulator for our
     git clone --branch jazzy-devel-floats https://github.com/GSO-soslab/stonefish
     ```
 - Download dependencies: `sudo apt update && sudo apt install libglm-dev libsdl2-dev libfreetype6-dev libpcl-dev`
-
-<!-- - Fix a file in SDL2 library
-    - `cd /usr/lib/x86_64-linux-gnu/cmake/SDL2/`
-    - `sudo nano sdl2-config.cmake`
-    - Remove space after "-lSDL2".
-    - Save the file. -->
 
 - Build the stonefish
 ```sh
@@ -49,11 +30,15 @@ sudo make install
 
 ```sh
 # some packages:
-sudo apt install ros-jazzy-robot-localization libgsl-dev
+sudo apt install ros-jazzy-robot-localization libgsl-dev libyaml-cpp-dev geographiclib-tools libgeographic-dev
+
+# make a new workspace
+cd ~/Your_Path
+mkdir -p stonefish_ws/src
+cd stonefish_ws/src
 
 # Acomm Messages:
 #   The ROS2 message type to handle USBL and Acoustic Modem data transmission.
-cd ~/YOUR_ROS2_WORKSPACE/src
 git clone --branch jazzy-devel https://github.com/GSO-soslab/acomms_msgs
 cd acomms_msgs
 git checkout d46c7260969a0195e68d382f584383728bba64fc
@@ -124,14 +109,42 @@ colcon build --parallel-worker $(nproc)
 ```sh
 cd ~/Your_ROS2_WORKSPACE
 source install/setup.bash 
-ros2 launch float_rise_bringup bringup_simulation_13_floats.launch.py
+ros2 launch float_rise_bringup bringup_simulation_floats.launch.py
 ```
 
 - Launch multi-float motions in temrianl 2
 ```sh
 cd ~/Your_ROS2_WORKSPACE
 source install/setup.bash 
-ros2 launch float_planner float_planner.launch.py
+# check the readme of float_planner to see how to setup the number of floats to be controlled
+# by default is 8
+ros2 launch float_planner float_planner.launch.py 
+```
+- Record data in temrianl 3
+```sh
+cd ~/Your_ROS2_WORKSPACE
+source install/setup.bash 
+ros2 bag record -a
 ```
 
-## Modification on simulated float
+## Introduction
+This is a repository of the simulation for swarm floats with acoustic devices (e.g., USBL or Acoustic modem).
+- Tested environment
+    - ROS version: Jazzy
+    - Ubuntu: 24.04
+- Directory information
+    - `float_rise` : empty folder
+    - `float_rise_bringup`: launch files 
+    - `float_rise_config` include MVP configuration files for missions and controller.
+    - `float_rise_description` include urdf files and rviz configuration files.
+- Launch files structures:
+    - `bringup_simulation_floats.launch.py`:
+        - bringup the simulation (`bringup_stonefish.launch.py`): 
+            - simulation setup, check `multiple_floats.scn` from `world_of_stonefish`
+            - publish the sensor data for each float in the simulation
+        - bringup each float control (i.g., `bringup_float_1.launch.py`)
+            - `description.launch.py`: URDF to publish the sensor TF
+            - `localization.launch.py`: the EKF package (robot_localization) for state estimation
+            - `mvp_control.launch.py`: the controller 
+            - `mvp_mission.launch.py`: the mission planner 
+            - each float will be the same setup.

@@ -15,7 +15,6 @@ def generate_launch_description():
     # simulator setup
     # ======================================================================= #
     world_of_stonefish_dir = get_package_share_directory('world_of_stonefish')
-    # sim_world = 'swarm_floats.scn'
     sim_world = 'multiple_floats.scn'
     simulation_data = os.path.join(world_of_stonefish_dir, 'data/')
     scenario_desc = os.path.join(world_of_stonefish_dir, 'world', sim_world)
